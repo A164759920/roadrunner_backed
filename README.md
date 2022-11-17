@@ -1,24 +1,12 @@
-# backed_system
+🔥roadrunner 网站后台数据面板
 
-## Project setup
-```
-npm install
-```
+# 【2022/11/17】 后台版本 v1.0
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+**ip 归属地 + user-agent 统计**
 
-### Compiles and minifies for production
-```
-npm run build
-```
+**待完成**
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- webpack 配置
+- 页面布局优化
+- SCF 托管部署
+- gitAction CI/CD 支持
