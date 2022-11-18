@@ -212,7 +212,7 @@ function initIUAhart() {
   height: 500px;
 }
 
-.el-table{
+.el-table {
   font-family: Russo One, Arial, sans-serif;
   font-weight: 600;
   font-size: 20px;
@@ -228,7 +228,7 @@ function initIUAhart() {
   font-size: 20px;
   text-align: center;
   line-height: 60px;
-  border-bottom: 5px solid  rgb(255 208 75);
+  border-bottom: 5px solid rgb(255 208 75);
 }
 
 .container .ipInfo {
@@ -248,4 +248,34 @@ function initIUAhart() {
 .uaInfo #uaCharts {
   width: 50%;
 }
+
+@media screen and (min-width:577px) and (max-width:768px) {
+  .container .ipInfo {
+    flex-direction: column;
+  }
+
+  .ipInfo #ipCharts {
+    width: 100%;
+  }
+
+  .container .uaInfo {
+    flex-direction: column;
+  }
+
+  .uaInfo #uaCharts {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:576px) {
+  .container .uaInfo {
+    flex-direction: column;
+  }
+
+  .uaInfo #uaCharts {
+    width: 100%;
+  }
+}
 </style>
+
+
