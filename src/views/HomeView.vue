@@ -2,7 +2,7 @@
   <div class="container">
     <div class="infoTitle"> IP INFORMATION.</div>
     <div class="ipInfo">
-      <div id="ipCharts" style="height:400px"> </div>
+      <div id="ipCharts"> </div>
       <el-table border stripe height="400" :data="state.ipData" :default-sort="{ prop: 'count', order: 'descending' }">
         <el-table-column prop="ipv4" label="ip地址"></el-table-column>
         <el-table-column prop="province" label="省份"></el-table-column>
@@ -12,7 +12,7 @@
     </div>
     <div class="infoTitle"> USER-AGENT INFORMATION.</div>
     <div class="uaInfo">
-      <div id="uaCharts" style="height:400px"> </div>
+      <div id="uaCharts"> </div>
       <el-table border stripe height="400" :data="state.uaData"
         :default-sort="{ prop: 'lastdate', order: 'descending' }">
         <el-table-column prop="ipv4" label="ip地址"></el-table-column>
@@ -99,7 +99,7 @@ function initIPChart() {
     title: {
       text: 'IP归属地 Top5',
       left: 'center',
-      top: 20,
+      top: 5,
       textStyle: {
         color: '#ccc'
       }
@@ -126,7 +126,8 @@ function initIPChart() {
         data: IPchartData,
         roseType: 'radius',
         label: {
-          color: 'rgba(255, 255, 255, 0.3)'
+          color: 'white',
+          fontWeight: 500,
         },
         labelLine: {
           lineStyle: {
@@ -155,7 +156,7 @@ function initIUAhart() {
     title: {
       text: '访客设备 Top5',
       left: 'center',
-      top: 20,
+      top: 5,
       textStyle: {
         color: '#ccc'
       }
@@ -182,7 +183,8 @@ function initIUAhart() {
         data: UAchartData,
         roseType: 'radius',
         label: {
-          color: 'rgba(255, 255, 255, 0.3)'
+          color: 'white',
+          fontWeight: 500,
         },
         labelLine: {
           lineStyle: {
@@ -237,6 +239,7 @@ function initIUAhart() {
 }
 
 .ipInfo #ipCharts {
+  height: 400px;
   width: 50%;
 }
 
@@ -246,12 +249,18 @@ function initIUAhart() {
 }
 
 .uaInfo #uaCharts {
+  height: 400px;
   width: 50%;
 }
 
 @media screen and (min-width:577px) and (max-width:768px) {
   .container .ipInfo {
     flex-direction: column;
+  }
+
+  .container .infoTitle {
+    line-height: 40px;
+    height: 40px;
   }
 
   .ipInfo #ipCharts {
@@ -268,11 +277,26 @@ function initIUAhart() {
 }
 
 @media screen and (max-width:576px) {
+  .container .ipInfo {
+    flex-direction: column;
+  }
+
+  .container .infoTitle {
+    line-height: 40px;
+    height: 40px;
+  }
+
+  .ipInfo #ipCharts {
+    height: 250px;
+    width: 100%;
+  }
+
   .container .uaInfo {
     flex-direction: column;
   }
 
   .uaInfo #uaCharts {
+    height: 250px;
     width: 100%;
   }
 }
