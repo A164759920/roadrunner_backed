@@ -13,8 +13,7 @@
     <div class="infoTitle"> USER-AGENT INFORMATION.</div>
     <div class="uaInfo">
       <div id="uaCharts"> </div>
-      <el-table border stripe height="400" :data="state.uaData"
-        :default-sort="{ prop: 'lastdate', order: 'descending' }">
+      <el-table border stripe height="400" :data="state.uaData" :default-sort="{ prop: 'lastdate', order: 'descending' }">
         <el-table-column prop="ipv4" label="ip地址"></el-table-column>
         <el-table-column prop="os" label="系统"></el-table-column>
         <el-table-column prop="browser" label="浏览器"></el-table-column>
@@ -40,12 +39,12 @@ let state = reactive({
 let IPchartData = []  //IP饼图数据
 let UAchartData = []  //UA饼图数据
 function getIpData() {
-  axios.get("https://server.roadrunner2002.top:8899/back_ip?type=all").then(res => {
+  axios.get("https://server.roadrunner2002.top/back_ip?type=all").then(res => {
     if (res.data.code === 0) {
       state.ipData = res.data.data
     }
   })
-  axios.get("https://server.roadrunner2002.top:8899/back_ip?type=top5").then(res => {
+  axios.get("https://server.roadrunner2002.top/back_ip?type=top5").then(res => {
     if (res.data.code === 0) {
       // 边界长度处理
       const length = res.data.data.length > 5 ? 5 : res.data.data.length
@@ -62,12 +61,12 @@ function getIpData() {
 }
 function getUAData() {
   // 后端接口支持分页，前端暂时不支持
-  axios.get("https://server.roadrunner2002.top:8899/back_ua?type=all&limit=100&offset=1").then(res => {
+  axios.get("https://server.roadrunner2002.top/back_ua?type=all&limit=100&offset=1").then(res => {
     if (res.data.code === 0) {
       state.uaData = res.data.data
     }
   })
-  axios.get("https://server.roadrunner2002.top:8899/back_ua?type=top5").then(res => {
+  axios.get("https://server.roadrunner2002.top/back_ua?type=top5").then(res => {
     if (res.data.code === 0) {
       const length = res.data.data.length > 5 ? 5 : res.data.data.length
       for (let i = 0; i < length; i++) {
@@ -114,7 +113,6 @@ function initIPChart() {
       inRange: {
         color: ['#e8e8e8', 'yellow', '#ffd04b'],
         symbolSize: [30, 100]
-
       }
     },
     series: [
